@@ -20,7 +20,7 @@
 #include <sys/stat.h>
 #include <unordered_map>
 #include <vector>
-namespace fs = std::filesystem;
+namespace fs = std::experimental::filesystem;
 
 #define ENOUGH ((CHAR_BIT * sizeof(int) - 1) / 3 + 3)
 char buffer[255];
@@ -341,7 +341,7 @@ int main(int argc, char **argv) {
         p_param->init();
         edison_assign_params(argc, argv, p_param);
 
-        std::filesystem::directory_entry dir_entry = entry;
+        std::experimental::filesystem::directory_entry dir_entry = entry;
         std::string entry_str = dir_entry.path().string();
         std::cout << entry_str << std::endl;
         std::regex pattern("/([a-zA-Z0-9_\.]+)\.csv");
